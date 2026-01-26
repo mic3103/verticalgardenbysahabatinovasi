@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vertical Garden Project</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#4da3ff;
+  --light-blue:#e6f4ff;
+  --dark:#1f2937;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body{
+  background:#fff;
+  color:var(--dark);
+  line-height:1.7;
+}
+
+/* ===== HEADER ===== */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 8%;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+header img{
+  height:45px;
+}
+
+nav ul{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--dark);
+  font-weight:500;
+}
+
+nav a:hover{
+  color:var(--blue);
+}
+
+/* ===== HERO ===== */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:80px 8%;
+  background:linear-gradient(120deg, #f9fcff, var(--light-blue));
+}
+
+.hero h1{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:18px;
+  margin-bottom:30px;
+}
+
+.hero img{
+  width:100%;
+  border-radius:25px;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+/* ===== SECTION ===== */
+section{
+  padding:80px 8%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:32px;
+}
+
+.section-title p{
+  color:#555;
+}
+
+/* ===== VISI MISI ===== */
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 15px 30px rgba(0,0,0,.08);
+}
+
+/* ===== SKEMA ===== */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+
+.step{
+  background:var(--light-blue);
+  padding:25px;
+  border-radius:20px;
+}
+
+/* ===== PRICING ===== */
+.pricing{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.price-card{
+  text-align:center;
+  padding:35px;
+  border-radius:25px;
+  background:#fff;
+  box-shadow:0 20px 40px rgba(0,0,0,.1);
+}
+
+.price-card h3{
+  margin-bottom:10px;
+}
+
+.price{
+  font-size:28px;
+  color:var(--blue);
+  font-weight:700;
+}
+
+/* ===== TEAM ===== */
+.team{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1000px;   /* BATAS LEBAR */
+  margin: 0 auto;      /* CENTER */
+}
+
+
+.member{
+  text-align:center;
+}
+
+.member img{
+  width:25vh;
+  height:25vh;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:15px;
+}
+
+.member a{
+  text-decoration:none;
+  color:var(--blue);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#f1f7ff;
+  padding:40px 8%;
+  text-align:center;
+  font-size:14px;
+}
+
+/* ===== SKEMA GAMBAR ===== */
+.skema-wrapper{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+}
+
+.skema-wrapper img{
+  max-width:900px;
+  width:100%;
+  border-radius:25px;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.skema-caption{
+  font-size:14px;
+  color:#555;
+  text-align:center;
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div style="display:flex; gap:15px; align-items:center;">
+    <img src="./asset/SAHABATINOVASI.png" alt="Sahabat Inovasi">
+    <img src="./asset/LOGO MARSUD.png" alt="Marsudirini">
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#">Beranda</a></li>
+      <li><a href="#about">Tentang Proyek</a></li>
+      <li><a href="#docs">Dokumentasi</a></li>
+      <li><a href="#">Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>Vertical Garden Project</h1>
+    <p>Solusi taman vertikal modern untuk lingkungan yang lebih hijau, sehat, dan berkelanjutan di area urban.</p>
+  </div>
+  <img src="./asset/VG.jpeg" alt="">
+</div>
+
+<!-- TENTANG -->
+<section id="about">
+  <div class="section-title">
+    <h2>Tentang Proyek</h2>
+    <p>Inovasi hijau untuk masa depan kota</p>
+  </div>
+  <div class="card">
+    Vertical Garden Project adalah inisiatif berkelanjutan yang menghadirkan konsep taman vertikal sebagai solusi keterbatasan lahan sekaligus meningkatkan kualitas udara dan estetika lingkungan.
+  </div>
+</section>
+
+<!-- VISI MISI -->
+<section>
+  <div class="section-title">
+    <h2>Visi & Misi</h2>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Visi</h3>
+      <p>Mengolah sampah menjadi berkat, mengusahakan lingkungan hijau di ruang sempit, membangun pertobatan ekologis, serta mewujudkan nilai ensiklik <i>Laudato Si'</i> .</p>
+    </div>
+    <div class="card">
+      <h3>Misi</h3>
+      <ul>
+        <li>Mengolah sampah secara kreatif dan berkelanjutan menjadi media tanam, instalasi taman vertikal, dan produk ramah lingkungan yang bernilai guna.</li>
+        <li>Mengembangkan konsep taman vertikal sebagai solusi penghijauan di lahan terbatas, khususnya di lingkungan perkotaan dan institusi pendidikan.</li>
+        <li>Menerapkan nilai Laudato Si’ dalam setiap tahap perencanaan dan pelaksanaan proyek sebagai bentuk tanggung jawab terhadap ciptaan.</li>
+        <li>Mendorong partisipasi aktif generasi muda dalam gerakan ekologis yang inovatif dan berdampak nyata.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKEMA -->
+<section>
+  <div class="section-title">
+    <h2>Skema Utama</h2>
+  </div>
+  <div class="skema-wrapper">
+    <img src="./asset/Skema.png" alt="Skema Vertical Garden">
+    <p class="skema-caption">
+      Skema utama perencanaan dan implementasi Vertical Garden Project
+    </p>
+  </div>
+
+</section>
+
+<!-- HARGA -->
+<section>
+  <div class="section-title">
+    <h2>Biaya Pembuatan</h2>
+  </div>
+  <div class="pricing">
+    <div class="price-card">
+      <h3>4 Botol Plastik 1,5 L</h3>
+      <div class="price"><s style="color: red;">Rp 40.000</s><br>Rp 0</div>
+      <p>Untuk satu paket vertikal garden</p>
+    </div>
+    <div class="price-card">
+      <h3>Pompa Aquarium Jangkauan 2M</h3>
+      <div class="price">Rp 125.000</div>
+    </div>
+    <div class="price-card">
+      <h3>8 x Pot Hidroponik</h3>
+      <div class="price"><s style="color: red;">Rp 24.000</s><br>Rp0</div>
+      <p>Pot Hidroponik Bekas</p>
+    </div>
+    <div class="price-card">
+      <h3>Pipa Aquarium 3M + Sambungan</h3>
+      <div class="price">Rp 28.000</div>
+      <p>Skala besar & khusus</p>
+    </div>
+    <div class="price-card">
+      <h3>Kawat 2,5 Meter</h3>
+      <div class="price">Rp 25.000</div>
+    </div>
+    <div class="price-card">
+      <h3>Bibit Kangkung</h3>
+      <div class="price">Rp 22.000</div>
+    </div>
+  </div>
+  <div style="padding-top: 40px ;" class="section-title">
+    <h2 style="color: var(--blue);">TOTAL: Rp. 200.000</h2>
+  </div>
+</section>
+
+<!--DOKUMENTASI YES YES YES-->
+<section id="docs">
+  <div class="section-title">
+    <h2>Dokumentasi Proyek</h2>
+  </div>
+  <div class="video-docs">
+    <video src=""></video>
+  </div>
+  <div class="docgmbr">
+    <img src="" alt="">
+  </div>
+</section>
+
+<!-- TEAM -->
+<section>
+  <div class="section-title">
+    <h2>Di Balik Layar</h2>
+  </div>
+  <div class="team">
+    <div class="member">
+      <img src="./asset/ALUNA.jpeg">
+      <h4>Aluna Chrissabel Shandry Sehang</h4>
+      <p>Ketua Pelaksana & Penggagas Ide</p>
+      <a href="https://www.instagram.com/unaaashg/">@unaaashg</a>
+    </div>
+    <div class="member">
+      <img src="./asset/MSN.jpg">
+      <h4>Michael Satria Nugroho</h4>
+      <p>Perancang Skema</p>
+      <a href="https://www.instagram.com/m_satriach31/">@m_satriach31</a>
+    </div>
+    <div class="member">
+      <img src="./asset/FINO.jpeg">
+      <h4>Fino Miltoni Buneady</h4>
+      <p>Pelaksana & Penasihat</p>
+      <a href="https://www.instagram.com/finobunn/">@finobunn</a>
+    </div>
+    <div class="member">
+      <img src="./asset/MG.jpeg">
+      <h4>Marco Gani</h4>
+      <p>Pelaksana & Penasihat</p>
+      <a href="https://www.instagram.com/marccc_cessnacitationx/">@marccc_cessnacitationx</a>
+    </div>
+    <div class="member">
+      <img src="https://via.placeholder.com/150">
+      <h4>Raphael Christopher Haryono</h4>
+      <p>Pelaksana</p>
+    </div>
+    <div class="member">
+      <img src="./asset/YONA.jpeg">
+      <h4>Yonatan Bonar Immanuel Siagian</h4>
+      <p>Pelaksana</p>
+      <a href="https://www.instagram.com/yonatanimmanuel_/">@yonatanimmanuel_</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Vertical Garden Project by Sahabat Inovasi · Green Today, Better Tomorrow 🌱<br>
+  <i>This Website Created & Deployed by Michael S.</i>
+</footer>
+
+</body>
+</html>
