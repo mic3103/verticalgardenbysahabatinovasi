@@ -369,6 +369,62 @@ footer{
   }
 }
 
+/* ===== TRAILER PREVIEW ===== */
+.trailer-preview{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:25px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.trailer-preview iframe{
+  width:100%;
+  height:100%;
+  border:none;
+  pointer-events:none;
+}
+
+.trailer-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.6), transparent);
+  color:#fff;
+  font-size:22px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.3s;
+}
+
+.trailer-preview:hover .trailer-overlay{
+  background:rgba(0,0,0,.55);
+}
+
+.watch-full{
+  position:absolute;
+  bottom:20px;
+  right:20px;
+  background:rgba(0,0,0,.65);
+  color:#fff;
+  padding:10px 16px;
+  border-radius:20px;
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+}
+
+.watch-full:hover{
+  background:#000;
+}
+
+
 
 
 </style>
@@ -517,19 +573,37 @@ footer{
   <div class="docs-grid">
 
     <!-- VIDEO -->
-    <div class="docs-video">
-      <video controls poster="./asset/VERTICAL GARDEN.png">
-        <source src="./asset/MARS ARDAS KAJ.mp4" type="video/mp4">
-        Browser kamu tidak mendukung video 😭
-      </video>
+  <div class="docs-video trailer-preview" onclick="playTrailer()">
+
+    <iframe
+      id="ytTrailer"
+      src="https://www.youtube.com/embed/Lu6qTkXS9X4?start=10&end=25&mute=0&controls=0&modestbranding=1&playsinline=1"
+      allow="autoplay; encrypted-media"
+      loading="lazy">
+    </iframe>
+
+
+    <div class="trailer-overlay" id="trailerOverlay">
+      ▶ Play 15s Trailer
     </div>
+
+    <a
+      href="https://www.youtube.com/watch?v=Lu6qTkXS9X4"
+      target="_blank"
+      class="watch-full"
+      id="watchFull">
+      Click here to watch full video →
+    </a>
+
+
+  </div>
+
 
     <!-- FOTO -->
     <div class="docs-images">
       <img src="./asset/WhatsApp Image 2026-01-24 at 18.39.56.jpeg" alt="Dokumentasi 1">
       <img src="./asset/VG.jpeg" alt="Dokumentasi 2">
-      <img src="./asset/doc3.jpg" alt="Dokumentasi 3">
-      <img src="./asset/doc4.jpg" alt="Dokumentasi 4">
+      <img src="./asset/WhatsApp Image 2026-02-01 at 15.57.01.jpeg" alt="Dokumentasi 3">
     </div>
 
   </div>
@@ -603,6 +677,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 700);
 });
 </script>
+
+<script>
+function playTrailer(){
+  const iframe = document.getElementById("ytTrailer");
+  const overlay = document.getElementById("trailerOverlay");
+  const watchFull = document.getElementById("watchFull");
+
+  if(!iframe.src.includes("autoplay=1")){
+    iframe.src += "&autoplay=1";
+
+    overlay.style.opacity = "0";
+    overlay.style.pointerEvents = "none";
+
+    watchFull.style.opacity = "1";
+    watchFull.style.pointerEvents = "auto";
+  }
+}
+</script>
+
 
 
 
