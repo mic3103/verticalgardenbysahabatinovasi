@@ -398,6 +398,22 @@ footer{
   align-items:center;
   justify-content:center;
   transition:.3s;
+  backdrop-filter: blur(2px);
+}
+
+.trailer-overlay::after{
+  content:"";
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  border:2px solid #fff;
+  position:absolute;
+  animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+  0%{ transform:scale(1); opacity:.8; }
+  100%{ transform:scale(1.4); opacity:0; }
 }
 
 .trailer-preview:hover .trailer-overlay{
@@ -424,7 +440,68 @@ footer{
   background:#000;
 }
 
+/* ===== SCROLL ANIMATION ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(50px) scale(.97);
+  transition:all .9s cubic-bezier(.19,1,.22,1);
+}
 
+.reveal.active{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+
+.card,
+.price-card,
+.step{
+  transition:.4s ease;
+}
+
+.card:hover,
+.price-card:hover,
+.step:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 25px 50px rgba(0,0,0,.15);
+}
+
+.hero h1,
+.hero p{
+  opacity:0;
+  transform:translateY(30px);
+  animation:heroFade .9s ease forwards;
+}
+
+.hero p{
+  animation-delay:.2s;
+}
+
+@keyframes heroFade{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+nav a{
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--blue);
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
 
 
 </style>
@@ -479,27 +556,27 @@ footer{
 </div>
 
 <!-- TENTANG -->
-<section id="about">
+<section id="about" class="reveal">
   <div class="section-title">
     <h2>Tentang Proyek</h2>
     <p>Inovasi hijau untuk masa depan kota</p>
   </div>
-  <div class="card">
+  <div class="card reveal">
     Vertical Garden Project adalah inisiatif berkelanjutan yang menghadirkan konsep taman vertikal sebagai solusi keterbatasan lahan sekaligus meningkatkan kualitas udara dan estetika lingkungan.
   </div>
 </section>
 
 <!-- VISI MISI -->
 <section>
-  <div class="section-title">
+  <div class="section-title reveal">
     <h2>Visi & Misi</h2>
   </div>
-  <div class="grid-2">
-    <div class="card">
+  <div class="grid-2 reveal">
+    <div class="card reveal">
       <h3>Visi</h3>
       <p>Mengolah sampah menjadi berkat, mengusahakan lingkungan hijau di ruang sempit, membangun pertobatan ekologis, serta mewujudkan nilai ensiklik <i>Laudato Si'</i> .</p>
     </div>
-    <div class="card">
+    <div class="card reveal">
       <h3>Misi</h3>
       <ul>
         <li>Mengolah sampah secara kreatif dan berkelanjutan menjadi media tanam, instalasi taman vertikal, dan produk ramah lingkungan yang bernilai guna.</li>
@@ -512,7 +589,7 @@ footer{
 </section>
 
 <!-- SKEMA -->
-<section>
+<section class="reveal">
   <div class="section-title">
     <h2>Skema Utama</h2>
   </div>
@@ -527,45 +604,45 @@ footer{
 
 <!-- HARGA -->
 <section>
-  <div class="section-title">
+  <div class="section-title reveal">
     <h2>Biaya Pembuatan</h2>
   </div>
   <div class="pricing">
-    <div class="price-card">
+    <div class="price-card reveal">
       <h3>4 Botol Plastik 1,5 L</h3>
       <div class="price"><s style="color: red;">Rp 40.000</s><br>Rp 0</div>
       <p>Untuk satu paket vertikal garden</p>
     </div>
-    <div class="price-card">
+    <div class="price-card reveal">
       <h3>Pompa Aquarium Jangkauan 2M</h3>
       <div class="price">Rp 125.000</div>
     </div>
-    <div class="price-card">
+    <div class="price-card reveal">
       <h3>8 x Pot Hidroponik</h3>
       <div class="price"><s style="color: red;">Rp 24.000</s><br>Rp0</div>
       <p>Pot Hidroponik Bekas</p>
     </div>
-    <div class="price-card">
+    <div class="price-card reveal">
       <h3>Pipa Aquarium 3M + Sambungan</h3>
       <div class="price">Rp 28.000</div>
       <p>Skala besar & khusus</p>
     </div>
-    <div class="price-card">
+    <div class="price-card reveal">
       <h3>Kawat 2,5 Meter</h3>
       <div class="price">Rp 25.000</div>
     </div>
-    <div class="price-card">
+    <div class="price-card reveal">
       <h3>Bibit Kangkung</h3>
       <div class="price">Rp 22.000</div>
     </div>
   </div>
-  <div style="padding-top: 40px ;" class="section-title">
+  <div style="padding-top: 40px ;" class="section-title reveal">
     <h2 style="color: var(--blue);">TOTAL: Rp. 200.000</h2>
   </div>
 </section>
 
 <section id="docs">
-  <div class="section-title">
+  <div class="section-title reveal">
     <h2>Dokumentasi Proyek</h2>
     <p>Proses, aksi, dan hasil nyata di lapangan</p>
   </div>
@@ -573,7 +650,7 @@ footer{
   <div class="docs-grid">
 
     <!-- VIDEO -->
-  <div class="docs-video trailer-preview" onclick="playTrailer()">
+  <div class="docs-video trailer-preview reveal" onclick="playTrailer()">
 
     <iframe
       id="ytTrailer"
@@ -601,9 +678,9 @@ footer{
 
     <!-- FOTO -->
     <div class="docs-images">
-      <img src="./asset/WhatsApp Image 2026-01-24 at 18.39.56.jpeg" alt="Dokumentasi 1">
-      <img src="./asset/VG.jpeg" alt="Dokumentasi 2">
-      <img src="./asset/WhatsApp Image 2026-02-01 at 15.57.01.jpeg" alt="Dokumentasi 3">
+      <img class="reveal" src="./asset/WhatsApp Image 2026-01-24 at 18.39.56.jpeg" alt="Dokumentasi 1">
+      <img class="reveal" src="./asset/VG.jpeg" alt="Dokumentasi 2">
+      <img class="reveal" src="./asset/WhatsApp Image 2026-02-01 at 15.57.01.jpeg" alt="Dokumentasi 3">
     </div>
 
   </div>
@@ -612,12 +689,12 @@ footer{
 
 <!-- TEAM -->
 <section>
-  <div class="section-title" id="contact">
+  <div class="section-title reveal" id="contact">
     <h2>Di Balik Layar</h2>
   </div>
 
   <div class="team">
-    <div class="member" style="padding-bottom: 50px;">
+    <div class="member reveal" style="padding-bottom: 50px;">
       <img src="./asset/Caecillia-Berta-Ayuwanditya.jpg">
       <h4>Caecillia Berta Ayuwanditya, S.Pd</h4>
       <p>Guru Pembimbing</p>
@@ -625,37 +702,37 @@ footer{
     </div>
   </div>
   <div class="team">
-    <div class="member">
+    <div class="member reveal">
       <img src="./asset/ALUNA.jpeg">
       <h4>Aluna Chrissabel Shandry Sehang</h4>
       <p>Ketua Pelaksana & Penggagas Ide</p>
       <a href="https://www.instagram.com/unaaashg/">@unaaashg</a>
     </div>
-    <div class="member">
+    <div class="member reveal">
       <img src="./asset/MSN.jpg">
       <h4>Michael Satria Nugroho</h4>
       <p>Perancang Skema</p>
       <a href="https://www.instagram.com/m_satriach31/">@m_satriach31</a>
     </div>
-    <div class="member">
+    <div class="member reveal">
       <img src="./asset/FINO.jpeg">
       <h4>Fino Miltoni Buneady</h4>
       <p>Pelaksana & Penasihat</p>
       <a href="https://www.instagram.com/finobunn/">@finobunn</a>
     </div>
-    <div class="member">
+    <div class="member reveal">
       <img src="./asset/MG.jpeg">
       <h4>Marco Gani</h4>
       <p>Pelaksana & Penasihat</p>
       <a href="https://www.instagram.com/marccc_cessnacitationx/">@marccc_cessnacitationx</a>
     </div>
-    <div class="member">
+    <div class="member reveal">
       <img src="./asset/RAPHAEL.png">
       <h4>Raphael Christopher Haryono</h4>
       <p>Pelaksana</p>
       <a href="https://www.instagram.com/raphaelch_/">@raphaelch_</a>
     </div>
-    <div class="member">
+    <div class="member reveal">
       <img src="./asset/YONA.jpeg">
       <h4>Yonatan Bonar Immanuel Siagian</h4>
       <p>Pelaksana</p>
@@ -666,7 +743,7 @@ footer{
 
 <footer>
   © 2026 Vertical Garden Project by Sahabat Inovasi · Green Today, Better Tomorrow 🌱<br>
-  <i>This Website Created & Deployed by Michael S.</i>
+  <i>This Website Was Created & Deployed by Michael S.</i>
 </footer>
 <script>
 const hamburger = document.getElementById("hamburger");
@@ -703,6 +780,24 @@ function playTrailer(){
     watchFull.style.pointerEvents = "auto";
   }
 }
+</script>
+
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+  const windowHeight = window.innerHeight;
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < windowHeight - 100){
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
 </script>
 
 
